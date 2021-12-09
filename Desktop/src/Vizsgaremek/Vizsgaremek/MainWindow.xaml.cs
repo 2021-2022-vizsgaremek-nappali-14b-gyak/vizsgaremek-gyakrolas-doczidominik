@@ -36,5 +36,29 @@ namespace Vizsgaremek
             Navigate.Navigation(welcomePage);
             
         }
+
+        /// <summary>
+        /// ListView elemen bal egérgomb fel lett engedve
+        /// </summary>
+        /// <param name="sender">ListView amin megnyomtuk a val egérgombot</param>
+        /// <param name="e"></param>
+        private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ListView lvMenu = sender as ListView;
+            ListViewItem lvMenuItem = lvMenu.SelectedItem as ListViewItem;
+            //ListViewItem lvMenuItem = (ListViewItem) lvMenu.SelectedItem;
+
+            if (lvMenuItem != null)
+            {
+                // x:Name tulajdonságot vizsgálom
+                switch (lvMenuItem.Name)
+                {
+                    //A kilépés menü itemre kattintva (aminek lviExit nevet adtunk) kilép a program
+                    case "lviExit":
+                        Close();
+                        break;
+                }
+            }
+        }
     }
 }
