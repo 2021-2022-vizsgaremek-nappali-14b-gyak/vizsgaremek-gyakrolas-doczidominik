@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Vizsgaremek.Navigation;
+using Vizsgaremek.Pages;
 
 namespace Vizsgaremek
 {
@@ -23,6 +25,40 @@ namespace Vizsgaremek
         public MainWindow()
         {
             InitializeComponent();
+            //Statikus osztály Navigate
+            //Eltárolja a nyitó ablakot, hogy azon tudjuk módosítani a "page"-ket
+            Navigate.mainWindow = this;
+
+            // Létrehozzuk a nyitó "UserControl" (WelcomePage)
+            WelcomePage welcomePage = new WelcomePage();
+
+            //Megjelenítjük a WelcomePage-t
+            Navigate.Navigation(welcomePage);
+            
+        }
+
+        /// <summary>
+        /// ListView elemen bal egérgomb fel lett engedve
+        /// </summary>
+        /// <param name="sender">ListView amin megnyomtuk a val egérgombot</param>
+        /// <param name="e"></param>
+        private void ListView_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ListView lvMenu = sender as ListView;
+            ListViewItem lvMenuItem = lvMenu.SelectedItem as ListViewItem;
+            //ListViewItem lvMenuItem = (ListViewItem) lvMenu.SelectedItem;
+
+            if (lvMenuItem != null)
+            {
+                // x:Name tulajdonságot vizsgálom
+                switch (lvMenuItem.Name)
+                {
+                    //A kilépés menü itemre kattintva (aminek lviExit nevet adtunk) kilép a program
+                    case "lviExit":
+                        Close();
+                        break;
+                }
+            }
         }
     }
 }
