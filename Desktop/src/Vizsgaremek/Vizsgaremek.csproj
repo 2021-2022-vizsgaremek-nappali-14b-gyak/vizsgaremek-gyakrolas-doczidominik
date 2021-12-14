@@ -8,8 +8,9 @@
 	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	  <UseWPF>true</UseWPF>
 	  <Version>0.0.1</Version>
-	  <Authors>Dóczi Dominik</Authors>
+	  <Authors>Gyuris Csaba</Authors>
 	  <Company>Vasvári</Company>
+	  <Product />
 	  <Description>Kilépés gomb működik</Description>
   </PropertyGroup>
 

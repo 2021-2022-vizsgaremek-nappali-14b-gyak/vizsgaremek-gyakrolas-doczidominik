@@ -39,5 +39,3 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pattern: ./publish/*.*
           release-url: ${{ steps.create_release.outputs.upload_url }}
-
-
