@@ -10,7 +10,7 @@ namespace Vizsgaremek.Models
 {
     public class ProgramInfo
     {
-        private string version;
+        private Version version;
         private string authors;
 
         public Version Version
