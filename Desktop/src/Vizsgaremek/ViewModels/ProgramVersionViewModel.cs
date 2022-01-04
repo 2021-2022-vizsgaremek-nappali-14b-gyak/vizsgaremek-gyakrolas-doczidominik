@@ -25,6 +25,7 @@ namespace Vizsgaremek.ViewModels
             }
         }
 
+
         public ProgramVersionViewModel()
         {
             programInfo = new ProgramInfo();
