@@ -57,7 +57,7 @@ namespace Vizsgaremek.Models.Tests
         {
             // arrange
             ProgramInfo programInfo = new ProgramInfo();
-            string expected = "Raktarkezelo";
+            string expected = "Vizsgaremek";
 
             // act
             string actual = programInfo.Title;
