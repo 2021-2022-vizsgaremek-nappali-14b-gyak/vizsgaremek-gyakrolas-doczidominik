@@ -62,7 +62,20 @@ namespace Vizsgaremek.Models.Tests
             // act
             string actual = programInfo.Title;
             // assert
-            Assert.AreEqual(expected, actual, "Description is not Raktarkezelo");
+            Assert.AreEqual(expected, actual, "Description is not Vizsgaremek");
+        }
+
+        [TestMethod()]
+        public void ProgramInfoTestAuthor()
+        {
+            // arrange
+            ProgramInfo programInfo = new ProgramInfo();
+            string expected = "Dóczi Dominik (doczidominik)";
+
+            // act
+            string actual = programInfo.Authors;
+            // assert
+            Assert.AreEqual(expected, actual, "Description is not Dóczi Dominik");
         }
 
     }
