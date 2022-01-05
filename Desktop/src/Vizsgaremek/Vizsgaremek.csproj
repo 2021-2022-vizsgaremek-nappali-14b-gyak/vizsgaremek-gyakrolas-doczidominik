@@ -8,10 +8,12 @@
 	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	  <UseWPF>true</UseWPF>
 	  <Version>0.0.3.0</Version>
-	  <Authors>Gyuris Csaba</Authors>
+	  <Authors>Dóczi Dominik</Authors>
 	  <Company>Vasvári</Company>
-	  <Product />
-	  <Description>Program verzió navigáció működik</Description>
+	  <Product>Raktarkezelo</Product>
+	  <Description>Működő raktárkezelő program</Description>
+	  <PackageId>Raktarkezelo</PackageId>
+	  <AssemblyName>Vizsgaremek</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
