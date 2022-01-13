@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using System.Reflection;
+
 using Octokit;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace Vizsgaremek.Models
 {
@@ -22,32 +24,8 @@ namespace Vizsgaremek.Models
             get
             {
                 var assembly = Assembly.GetExecutingAssembly();
-                var assemblyVerzio = assembly.GetName().Version;
-                return assemblyVerzio;
-            }
-        }
-
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                return description;
-            }
-        }
-
-        public string Company
-        {
-            get
-            {
-                return company;
+                var assemblyVersion = assembly.GetName().Version;
+                return assemblyVersion;
             }
         }
 
@@ -55,38 +33,35 @@ namespace Vizsgaremek.Models
         {
             get
             {
-                return authors;
+                return authors;                
             }
         }
 
-
-
-
+        public string Title { get => title; set => title = value; }
+        public string Description { get => description; set => description = value; }
+        public string Company { get => company; set => company = value; }
 
         public ProgramInfo()
         {
             GetGithubCollaboratorsName();
 
             Assembly assembly = Assembly.GetExecutingAssembly();
-
-
             foreach (Attribute attr in Attribute.GetCustomAttributes(assembly))
             {
                 if (attr.GetType() == typeof(AssemblyTitleAttribute))
-                    title = ((AssemblyTitleAttribute)attr).Title;
+                    Title = ((AssemblyTitleAttribute)attr).Title;
                 else if (attr.GetType() == typeof(AssemblyDescriptionAttribute))
-                    description = ((AssemblyDescriptionAttribute)attr).Description;
+                    Description = ((AssemblyDescriptionAttribute)attr).Description;
                 else if (attr.GetType() == typeof(AssemblyCompanyAttribute))
-                    company = ((AssemblyCompanyAttribute)attr).Company;
+                    Company = ((AssemblyCompanyAttribute)attr).Company;
 
             }
-
         }
 
         private async void GetGithubCollaboratorsName()
         {
-            string reponame = "vizsgaremek-gyakrolas-doczidominik";
-            int repoId = 431761082;
+            string reponame = "gycsaba-vasvari";
+            int repoId = 431763351;
             var client = new GitHubClient(new ProductHeaderValue(reponame));
 
             // fejlesztők meghatározása
@@ -107,10 +82,6 @@ namespace Vizsgaremek.Models
                 Debug.WriteLine(e.Message);
             }
         }
-
-
-
-
 
     }
 }
